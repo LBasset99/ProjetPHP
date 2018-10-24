@@ -35,6 +35,13 @@
             return $categorie;
         }
 
+        function getAllArt() : array {
+            $req = "SELECT * FROM article;";
+            $cat = $this->db->query($req);
+            $articles = $cat->fetchall(PDO::FETCH_CLASS, 'Article');
+
+            return $articles;
+        }
 
 
         // Accès aux n premiers articles
@@ -59,6 +66,8 @@
             return $article;
         }
 
+        // Cette méthode retourne un tableau contenant n  articles de la couleur choisie
+        // la base sous la forme d'objets de la classe Article.
           function getCouleur($couleur) : array {
             $req = "SELECT * FROM article WHERE  $couleur=couleur;";
             $art = $this->db->query($req);

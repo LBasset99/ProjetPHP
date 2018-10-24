@@ -4,12 +4,17 @@
     // Inclusion du modèle
     include_once("../model/DAO.class.php");
 
+
+
+    $start=$dao->getAllArt();
+
     // Article suivant
-    $nextRef = $dao->next(end($articles)->ref);
+  //  $nextRef = $dao->next(end($articles)->ref);
 
     // Les articles précédents
-    $prev = $dao->prevN($articles[0]->ref,12);
+//$prev = $dao->prevN($articles[0]->ref,12);
+
 
     // Charge la vue
-    include("../view/articles.view.php")
+  include("../view/articles.view.php");
  ?>
