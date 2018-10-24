@@ -6,6 +6,9 @@
     <title>Panier - Vlad Shop Unofficial</title>
   </head>
   <body>
-
+    <header>
+      <p>Panier</p>
+      <img src="design/vladshop.png" width="" alt="vlad logo">
+    </header>
   </body>
 </html>
