@@ -1,0 +1,11 @@
+body {
+  font-family: arial, sans-serif;
+  width: 80%;
+  margin: auto;
+  border: 1px solid blue;
+}
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
