@@ -1,5 +1,6 @@
 <?php
 require_once('../model/function_panier.model.php');
+require_once('../controler/main.ctrl.php');
 // autres require header / sidebar
 
  ?>
@@ -29,12 +30,13 @@ require_once('../model/function_panier.model.php');
           <td>Action</td>
         </tr>
         <?php
-        $nbProduits = count($_SESSION['panier']['idArticle']);
-        if ($nbProduits < 0) {
-          echo 'Votre panier est vide...'
-        } else {
-          
-        }
+
+          $nbProduits = count($_SESSION['panier']['idArticle']);
+          if ($nbProduits < 0) {
+            echo 'Votre panier est vide...';
+          } else {
+            // 5:38 #14-1 YOUTUBE APPRENDRE LE PHP PSK C IMPORTANT
+          }
 
 
 

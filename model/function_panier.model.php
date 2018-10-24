@@ -20,7 +20,7 @@ function supprimerPanier() {
 function ajouterArticle($idProduit, $qteArticle) {
   if(creationPanier()) {
     $position_produit = array_search($idProduit, $_SESSION['panier']['idArticle']);
-    if ()$position_produit !== false) {
+    if ($position_produit !== false) {
       $_SESSION['panier']['idArticle'][$position_produit] += $qteArticle;
     } else {
       array_push($_SESSION['panier']['idArticle'], $idArticle);
@@ -80,7 +80,7 @@ function compterArticles() {
 function montantGlobal() {
   $total = 0;
   for ($i; $i < count($_SESSION['panier']['idArticle']); $i++) {
-    $select = $db->query("SELECT prix FROM article WHERE id = $_SESSION['panier']['idArticle']");
+    $select = $db->query("SELECT prix FROM article WHERE id = '{$_SESSION['panier']['idArticle']}'");
     $prix = $select->fetch(PDO::FETCH_OBJ);
     $total += $_SESSION['panier']['qteArticle'][$i] * $prix;
   }
