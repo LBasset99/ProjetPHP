@@ -1,11 +1,21 @@
 body {
   font-family: arial, sans-serif;
-  width: 80%;
+  width: 70%;
   margin: auto;
   border: 1px solid blue;
 }
+
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin: 5px;
+}
+
+div {
+  
+}
+
+img {
+  border: 3px solid black;
 }

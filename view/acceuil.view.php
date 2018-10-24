@@ -7,15 +7,13 @@
   </head>
   <body>
     <header>
-
-
-      <p>Me connecter</p>
       <div>
-        <img src="design/vladshop.png" alt="logo du site">
+        <img src="design/vladshop.png" width="45%" height="45%" alt="logo du site">
       </div>
-      <p>Panier</p>
-
-
+      <div>
+        <p>Me connecter</p>
+        <p>Panier</p>
+      </div>
     </header>
 
 
