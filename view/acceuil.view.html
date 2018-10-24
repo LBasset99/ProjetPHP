@@ -8,6 +8,9 @@
   <body>
     <header>
       <div>
+
+      </div>
+      <div>
         <img src="design/vladshop.png" width="45%" height="45%" alt="logo du site">
       </div>
       <div>
