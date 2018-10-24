@@ -59,6 +59,14 @@
             return $article;
         }
 
+          function getCouleur($couleur) : array {
+            $req = "SELECT * FROM article WHERE  $couleur=couleur;";
+            $art = $this->db->query($req);
+            $article = $art->fetchall(PDO::FETCH_CLASS, 'Article');
+
+            return $article;
+        }
+
         // Acces à la référence qui suit la référence $ref dans l'ordre des références
         function next(int $ref) : int {
             $req = "SELECT ref FROM article WHERE ref > $ref LIMIT 1;";
