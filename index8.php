@@ -1,2 +1,2 @@
 <?php
- header('Location: controler/pagePrincipale.ctrl.php');
+ header('Location: controler/pagePrincipale.ctrl.php');?>
