@@ -1,19 +1,33 @@
 body {
   font-family: arial, sans-serif;
-  width: 70%;
+  width: 60%;
   margin: auto;
-  border: 1px solid blue;
+  background-color: rgb(40, 40, 40);
 }
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin: 5px;
+  padding: 5px;
+  background-color: white;
 }
 
 div {
-  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+}
+
+.divDroite {
+  margin-right: 5px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divDroite p {
+  color: rgb(64, 64, 64);
+  border: 1px solid rgb(64, 64, 64);
 }
 
 img {

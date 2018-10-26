@@ -8,13 +8,18 @@
   <body>
     <header>
       <div>
-        <img src="design/vladshop.png" width="45%" height="45%" alt="logo du site">
       </div>
       <div>
-        <p>Me connecter</p>
-        <p>Panier</p>
+        <img src="design/vladshop.png" width="45%" height="45%" alt="logo du site">
+      </div>
+      <div class="divDroite">
+        <a href=""><button type="button" >Me connecter</button></a>
+        <a href=""><button type="button" >   Panier   </button></a>
       </div>
     </header>
+    <div class="body">
+
+    </div>
 
 
 
