@@ -1,2 +1,4 @@
 <?php
- header('Location: controler/pagePrincipale.ctrl.php');?>
+require_once('view/design/header.php');
+
+ ?>
