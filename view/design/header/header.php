@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link href="view/design/header/header.css" type="text/css" rel="stylesheet" />
-    <script type="text/javascript" src="view/design/header.js"></script>
+    <link href="../view/design/header/header.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="../view/design/header.js"></script>
   </head>
   <nav>
     <div class="logo"></div>

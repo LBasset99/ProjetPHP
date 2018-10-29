@@ -8,13 +8,16 @@
 
     $start=$dao->getAllArt();
 
-    // Article suivant
-  //  $nextRef = $dao->next(end($articles)->ref);
+// Article suivant
+//  $nextRef = $dao->next(end($articles)->ref);
 
-    // Les articles précédents
+// Les articles précédents
 //$prev = $dao->prevN($articles[0]->ref,12);
 
 
-    // Charge la vue
-  include("../view/articles.view.php");
+  // Charge la vue
+  require_once('../view/design/header/header.php');
+  require_once('../view/design/sidebar/sidebar.php');
+  require_once('../view/design/footer/footer.php');
+  require_once("../view/articles.view.php");
  ?>
