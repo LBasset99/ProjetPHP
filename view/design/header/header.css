@@ -15,7 +15,7 @@ header {
   height: 400px;
   color: #fff;
   text-align: center;
-  background: url("https://farm9.staticflickr.com/8088/8363737128_b76782c7a2_b.jpg") no-repeat center center;
+  background: url("https://wallpapertag.com/wallpaper/full/8/0/a/131188-new-dark-abstract-backgrounds-1920x1080-pictures.jpg") no-repeat center center;
   background-size: cover;
 }
 .headline:after {
@@ -70,7 +70,8 @@ nav li {
 }
 nav a {
   font-size: 0.9em;
-  color: #fff;
+  color: #fff !important;
+  font-weight: normal !important;
   text-decoration: none;
   margin: 5px 0 0 20px;
   display: block;
@@ -98,16 +99,6 @@ nav a:hover {
 .logo:after {
   content: '\00AB';
   left: 34px;
-}
-
-section {
-  width: 100%;
-  margin: 25px auto;
-  padding: 20px;
-  max-width: 800px;
-  font-size: 1.2em;
-  line-height: 1.6em;
-  box-sizing: border-box;
 }
 
 @-webkit-keyframes fade-in {

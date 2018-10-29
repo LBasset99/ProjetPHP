@@ -2,15 +2,16 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link href="view/design/header.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="view/design/header/header.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="view/design/header.js"></script>
   </head>
   <nav>
     <div class="logo"></div>
-    <ul>
-      <li><a href="panier.view.php">Mon Panier</a></li>
-      <li><a href="inscription.view.php">M'inscrire</a></li>
-      <li><a href="connexion.view.php">Me connecter</a></li>
+    <ul class="liens">
+      <li class=""><a href="panier.view.php">Mon Panier</a></li>
+      <li class=""><a href="inscription.view.php">M'inscrire</a></li>
+      <li class=""><a href="connexion.view.php">Me connecter</a></li>
       <!-- <li><a href="#">Item 4</a></li> -->
     </ul>
   </nav>
