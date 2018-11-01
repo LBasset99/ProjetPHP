@@ -76,6 +76,16 @@
             return $article;
         }
 
+        // Cette méthode retourne un tableau contenant n  articles de la catégorie choisie
+        // la base sous la forme d'objets de la classe Article.
+          function getCategorie($categorie) : array {
+            $req = "SELECT * FROM article WHERE  $categorie=categorie;";
+            $art = $this->db->query($req);
+            $article = $art->fetchall(PDO::FETCH_CLASS, 'Article');
+
+            return $article;
+        }
+
         // Acces à la référence qui suit la référence $ref dans l'ordre des références
         function next(int $ref) : int {
             $req = "SELECT ref FROM article WHERE ref > $ref LIMIT 1;";
@@ -108,8 +118,6 @@
         }
 
 
-
-
         // Acces au n articles à partir de la reférence $ref
         // Retourne une table d'objets de la classe Article
         function getNCateg(int $ref,int $n,string $categorie) : array {
@@ -118,6 +126,7 @@
             ///////////////////////////////////////////////////////
             return array();
         }
+
     }
 
     ?>

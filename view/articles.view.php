@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link href="../view/articles.view.css" type="text/css" rel="stylesheet" />
+
     <title></title>
   </head>
   <body>
@@ -10,13 +12,30 @@
     foreach ($start as $key => $value) {
       print('<div class="row">');
 
-      if ($value->categorie == "T-shirts") {
+      if ($value->categorie == "1") {
         print('<div class="column tshirts">');
         print('<div class="content">');
-        print('img src="'.$url.$value->image.'" alt="article" style="width:100%"');
+        print('<img src="'.$url.$value->image.'" alt="article" style="width:100%">');
         print('<h4>'.$value->libelle.'</h4>');
         print('</div></div>');
       }
-    } ?>
+
+      if ($value->categorie == "2") {
+        print('<div class="column pulls">');
+        print('<div class="content">');
+        print('<img src="'.$url.$value->image.'" alt="article" style="width:100%">');
+        print('<h4>'.$value->libelle.'</h4>');
+        print('</div></div>');
+      }
+
+      if ($value->categorie == "3") {
+        print('<div class="column capuche">');
+        print('<div class="content">');
+        print('<img src="'.$url.$value->image.'" alt="article" style="width:100%">');
+        print('<h4>'.$value->libelle.'</h4>');
+        print('</div></div>');
+      }
+    }
+     ?>
   </body>
 </html>
