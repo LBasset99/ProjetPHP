@@ -36,9 +36,9 @@
         }
 
         function getAllArt($tri) : array {
-            if ($tri = 'prixDecroissant')
+            if ($tri = "prixDecroissant")
               $req = "SELECT * FROM article order by prix;";
-            else if ($tri = 'prixCroissant') {
+            else if ($tri = "prixCroissant") {
               $req = "SELECT * FROM article order by prix desc;";
             }
 

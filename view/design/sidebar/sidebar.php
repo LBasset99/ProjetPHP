@@ -25,8 +25,9 @@
               }
             }
             ?>
-
         </select>
+
+
         <p class="cat">Trier par :</p>
         <select name="trie" size="1">
           <option value="prixDecroissant"
@@ -51,7 +52,7 @@
     <?php
     $url="../data/img/";
     print('<div class="contenant">');
-    foreach ($start as $key => $value) {
+    foreach ($affiches as $key => $value) {
 
       print('<div class="content">');
       print('<img src="'.$url.$value->image.'" alt="article">');
