@@ -6,36 +6,10 @@
 
     <title></title>
   </head>
-  <body>
+  <body class="corps">
     <?php
-    $url="../data/img/";
-    foreach ($start as $key => $value) {
-      print('<div class="row">');
-
-      if ($value->categorie == "1") {
-        print('<div class="column tshirts">');
-        print('<div class="content">');
-        print('<img src="'.$url.$value->image.'" alt="article" style="width:100%">');
-        print('<h4>'.$value->libelle.'</h4>');
-        print('</div></div>');
-      }
-
-      if ($value->categorie == "2") {
-        print('<div class="column pulls">');
-        print('<div class="content">');
-        print('<img src="'.$url.$value->image.'" alt="article" style="width:100%">');
-        print('<h4>'.$value->libelle.'</h4>');
-        print('</div></div>');
-      }
-
-      if ($value->categorie == "3") {
-        print('<div class="column capuche">');
-        print('<div class="content">');
-        print('<img src="'.$url.$value->image.'" alt="article" style="width:100%">');
-        print('<h4>'.$value->libelle.'</h4>');
-        print('</div></div>');
-      }
-    }
+      include_once('../controler/afficherArticles.ctrl.php');
+      $dao->afficherArt($catAffiche);
      ?>
   </body>
 </html>

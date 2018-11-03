@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link href="../view/design/header/header.css" type="text/css" rel="stylesheet" />
-    <script type="text/javascript" src="../view/design/header.js"></script>
   </head>
   <nav>
-    <div class="logo"></div>
+    <div class="logo"><a href="../../../index8.php"></div>
     <ul class="liens">
       <li class=""><a href="panier.view.php">Mon Panier</a></li>
       <li class=""><a href="inscription.view.php">M'inscrire</a></li>

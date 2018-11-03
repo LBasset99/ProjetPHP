@@ -28,20 +28,44 @@
         // Accès à toutes les catégories
         // Retourne une table d'objets de type Categorie
         function getAllCat() : array {
-            $req = "SELECT * FROM categorie;";
-            $cat = $this->db->query($req);
-            $categorie = $cat->fetchall(PDO::FETCH_CLASS, 'Categorie');
+          $req="SELECT nom FROM categorie";
+          $cat=$this->db->query($req);
+          $categorie=$cat->fetchAll();
 
-            return $categorie;
+          return $categorie;
         }
 
-        function getAllArt() : array {
-            $req = "SELECT * FROM article;";
-            $cat = $this->db->query($req);
-            $articles = $cat->fetchall(PDO::FETCH_CLASS, 'Article');
+        function getAllArt($tri) : array {
+            if ($tri = 'prixDecroissant')
+              $req = "SELECT * FROM article order by prix;";
+            else if ($tri = 'prixCroissant') {
+              $req = "SELECT * FROM article order by prix desc;";
+            }
 
-            return $articles;
+            $art = $this->db->query($req);
+            $article = $art->fetchall();
+
+            return $article;
         }
+
+        function getArticles() : array {
+            $req = "SELECT * FROM article order by prix;";
+            $art = $this->db->query($req);
+            $article = $art->fetchall(PDO::FETCH_CLASS, 'Article');
+
+            return $article;
+        }
+
+        public function getFctCat(string $cat, string $tri) : array{
+            if ($tri == "prixDecroissant") {
+              $req='SELECT * FROM article where categorie='.$cat;
+            } else if ($tri == "prixCroissant") {
+              $req='SELECT * FROM article where categorie='.$cat.' order by prix';
+            }
+           $sth=$this->dataBase->query($req);
+           $result=$sth->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Article');
+           return $result;
+         }
 
 
         // Accès aux n premiers articles

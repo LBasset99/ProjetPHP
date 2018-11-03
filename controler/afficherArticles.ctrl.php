@@ -4,9 +4,26 @@
     // Inclusion du modèle
     include_once("../model/DAO.class.php");
 
+    global $start;
+    $start=$dao->getArticles();
+    global $debut;
+    $debut=$dao->getAllCat();
 
-
-    $start=$dao->getAllArt();
+    if (isset($_GET["catChoisie"])) {
+      $selectCat = $_GET["catChoisie"];
+    } else {
+      $selectCat="tout";
+    }
+    if (isset($_GET["trie"])) {
+      $tri = $_GET["trie"];
+    } else {
+      $tri = "prixDecroissant";
+    }
+    if($selectCat=="tout"){
+      $startCat = $dao->getAllArt($tri);
+    } else{
+      $startCat = $start->getFctCat($selectCat, $tri);
+    }
 
 // Article suivant
 //  $nextRef = $dao->next(end($articles)->ref);
