@@ -61,6 +61,7 @@
       print('<button class="ajouter" type="button" name="button">AJOUTER AU PANIER</button>');
       print('</div>');
     }
-    print('</div>');?>
+    print('</div>');
+    ?>
   </div>
 </div>

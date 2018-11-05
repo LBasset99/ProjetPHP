@@ -35,12 +35,8 @@
           return $categorie;
         }
 
-        function getAllArt($tri) : array {
-            if ($tri = "prixDecroissant")
-              $req = "SELECT * FROM article order by prix;";
-            else if ($tri = "prixCroissant") {
-              $req = "SELECT * FROM article order by prix desc;";
-            }
+        function getAllArt() : array {
+            $req = "SELECT * FROM article order by prix;";
 
             $art = $this->db->query($req);
             $article = $art->fetchall();
@@ -48,22 +44,43 @@
             return $article;
         }
 
-        function getArticles() : array {
+        function getArticles($tri) : array {
+          if ($tri == "prixDecroissant") {
+            $req = "SELECT * FROM article order by prix desc;";
+          }
+          else if ($tri == "prixCroissant") {
             $req = "SELECT * FROM article order by prix;";
+          }
             $art = $this->db->query($req);
-            $article = $art->fetchall(PDO::FETCH_CLASS, 'Article');
+            $article = $art->fetchAll(PDO::FETCH_CLASS, 'Article');
 
             return $article;
         }
 
-        public function getFctCat(string $cat, string $tri) : array{
+        function getFctCat(string $cat, string $tri) : array {
+          switch ($cat) {
+            case "T-shirts":
+            echo "lol";
+              $cas = 1;
+              break;
+
+            case 'Sweat - Pulls':
+              $cas = 2;
+              break;
+
+            case 'Sweat Capuche':
+              $cas = 3;
+              break;
+          }
             if ($tri == "prixDecroissant") {
-              $req='SELECT * FROM article where categorie='.$cat;
+              $req='SELECT * FROM article WHERE categorie="'.$cas.'" order by prix desc';
             } else if ($tri == "prixCroissant") {
-              $req='SELECT * FROM article where categorie='.$cat.' order by prix';
+              $req='SELECT * FROM article WHERE categorie="'.$cas.'" order by prix';
             }
-           $sth=$this->dataBase->query($req);
-           $result=$sth->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Article');
+
+           $art = $this->db->query($req);
+           $result = $art->fetchAll(PDO::FETCH_CLASS, 'Article');
+
            return $result;
          }
 

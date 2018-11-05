@@ -4,7 +4,7 @@
     // Inclusion du modèle
     include_once("../model/DAO.class.php");
 
-    $start=$dao->getArticles();
+    $start=$dao->getArticles("prixDecroissant");
     $debut=$dao->getAllCat();
 
     if (isset($_GET["catChoisie"])) {
@@ -22,7 +22,7 @@
     if($selectCat=="tout"){
       $affiches = $dao->getArticles($tri);
     } else{
-      $affiches = $start->getFctCat($selectCat, $tri);
+      $affiches = $dao->getFctCat($selectCat, $tri);
     }
 
 
