@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link href="../view/design/header/header.css" type="text/css" rel="stylesheet" />
   </head>
+  <div class="bg"></div>
   <nav>
     <div class="logo"><a href="../../../index8.php"></div>
     <ul class="liens">
@@ -23,3 +24,15 @@
     </div>
   </header>
 </html>
+
+<!-- <script type="text/javascript">
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-10px";
+  }
+}
+</script> -->

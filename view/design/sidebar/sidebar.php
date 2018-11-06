@@ -5,7 +5,7 @@
 <div class="tout">
   <div class="sidebar">
 
-    <h2>&nbsp Filtrer :</h2>
+    <h2>Filtrer :</h2>
 
 
     <form action="../controler/afficherArticles.ctrl.php">
