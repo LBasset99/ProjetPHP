@@ -28,20 +28,61 @@
         // Accès à toutes les catégories
         // Retourne une table d'objets de type Categorie
         function getAllCat() : array {
-            $req = "SELECT * FROM categorie;";
-            $cat = $this->db->query($req);
-            $categorie = $cat->fetchall(PDO::FETCH_CLASS, 'Categorie');
+          $req="SELECT nom FROM categorie";
+          $cat=$this->db->query($req);
+          $categorie=$cat->fetchAll();
 
-            return $categorie;
+          return $categorie;
         }
 
         function getAllArt() : array {
-            $req = "SELECT * FROM article;";
-            $cat = $this->db->query($req);
-            $articles = $cat->fetchall(PDO::FETCH_CLASS, 'Article');
+            $req = "SELECT * FROM article order by prix;";
 
-            return $articles;
+            $art = $this->db->query($req);
+            $article = $art->fetchall();
+
+            return $article;
         }
+
+        function getArticles($tri) : array {
+          if ($tri == "prixDecroissant") {
+            $req = "SELECT * FROM article order by prix desc;";
+          }
+          else if ($tri == "prixCroissant") {
+            $req = "SELECT * FROM article order by prix;";
+          }
+            $art = $this->db->query($req);
+            $article = $art->fetchAll(PDO::FETCH_CLASS, 'Article');
+
+            return $article;
+        }
+
+        function getFctCat(string $cat, string $tri) : array {
+          switch ($cat) {
+            case "T-shirts":
+            echo "lol";
+              $cas = 1;
+              break;
+
+            case 'Sweat - Pulls':
+              $cas = 2;
+              break;
+
+            case 'Sweat Capuche':
+              $cas = 3;
+              break;
+          }
+            if ($tri == "prixDecroissant") {
+              $req='SELECT * FROM article WHERE categorie="'.$cas.'" order by prix desc';
+            } else if ($tri == "prixCroissant") {
+              $req='SELECT * FROM article WHERE categorie="'.$cas.'" order by prix';
+            }
+
+           $art = $this->db->query($req);
+           $result = $art->fetchAll(PDO::FETCH_CLASS, 'Article');
+
+           return $result;
+         }
 
 
         // Accès aux n premiers articles
@@ -70,6 +111,16 @@
         // la base sous la forme d'objets de la classe Article.
           function getCouleur($couleur) : array {
             $req = "SELECT * FROM article WHERE  $couleur=couleur;";
+            $art = $this->db->query($req);
+            $article = $art->fetchall(PDO::FETCH_CLASS, 'Article');
+
+            return $article;
+        }
+
+        // Cette méthode retourne un tableau contenant n  articles de la catégorie choisie
+        // la base sous la forme d'objets de la classe Article.
+          function getCategorie($categorie) : array {
+            $req = "SELECT * FROM article WHERE  $categorie=categorie;";
             $art = $this->db->query($req);
             $article = $art->fetchall(PDO::FETCH_CLASS, 'Article');
 
@@ -108,8 +159,6 @@
         }
 
 
-
-
         // Acces au n articles à partir de la reférence $ref
         // Retourne une table d'objets de la classe Article
         function getNCateg(int $ref,int $n,string $categorie) : array {
@@ -118,6 +167,7 @@
             ///////////////////////////////////////////////////////
             return array();
         }
+
     }
 
     ?>
