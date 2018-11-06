@@ -28,11 +28,19 @@
         // Accès à toutes les catégories
         // Retourne une table d'objets de type Categorie
         function getAllCat() : array {
-          $req="SELECT nom FROM categorie";
-          $cat=$this->db->query($req);
-          $categorie=$cat->fetchAll();
+          $req = "SELECT nom FROM categorie";
+          $cat = $this->db->query($req);
+          $categorie = $cat->fetchAll();
 
           return $categorie;
+        }
+
+        function getUnArt($unArt) : Article {
+          $req = 'SELECT * FROM Article WHERE ref="'.$unArt.'";';
+          $art = $this->db->query($req);
+          $article = $art->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Article');
+
+          return $article[0];
         }
 
         function getAllArt() : array {
@@ -52,7 +60,7 @@
             $req = "SELECT * FROM article order by prix;";
           }
             $art = $this->db->query($req);
-            $article = $art->fetchAll(PDO::FETCH_CLASS, 'Article');
+            $article = $art->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Article');
 
             return $article;
         }
@@ -60,7 +68,6 @@
         function getFctCat(string $cat, string $tri) : array {
           switch ($cat) {
             case "T-shirts":
-            echo "lol";
               $cas = 1;
               break;
 
@@ -79,7 +86,7 @@
             }
 
            $art = $this->db->query($req);
-           $result = $art->fetchAll(PDO::FETCH_CLASS, 'Article');
+           $result = $art->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Article');
 
            return $result;
          }

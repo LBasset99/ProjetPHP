@@ -10,7 +10,7 @@
 
     <form action="../controler/afficherArticles.ctrl.php">
           <p class="cat">Categorie :</p>
-        <select name="catChoisie" size="1">
+        <select name="catChoisie" size="1" id="soflow">
           <option value="tout"
           <?php if (!isset($_GET["catChoisie"]) || $_GET["catChoisie"]=="tout") {
             echo "selected";
@@ -29,7 +29,7 @@
 
 
         <p class="cat">Trier par :</p>
-        <select name="trie" size="1">
+        <select name="trie" size="1" id="soflow">
           <option value="prixDecroissant"
             <?php if (!isset($_GET["trie"]) || $_GET["trie"]=="prixDecroissant") {
               echo "selected";
@@ -53,12 +53,13 @@
     $url="../data/img/";
     print('<div class="contenant">');
     foreach ($affiches as $key => $value) {
-
-      print('<div class="content">');
+      print('<div class="cont">');
+      print('<a href="../controler/article.ctrl.php?art='.$value->ref.'" class="art">');
       print('<img src="'.$url.$value->image.'" alt="article">');
       print('<h4>'.$value->libelle.'</h4>');
       print('<h6>&nbsp &nbsp &nbsp'.$value->prix.'€</h6>');
-      print('<button class="ajouter" type="button" name="button">AJOUTER AU PANIER</button>');
+      print('</a>');
+      print('<a href="" class="ajouter">AJOUTER AU PANIER</a>');
       print('</div>');
     }
     print('</div>');
