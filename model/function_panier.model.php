@@ -1,5 +1,4 @@
 <?php
-
 // Création d'un panier
 function creationPanier() {
   if (!isset($_SESSION['panier'])) {
@@ -7,6 +6,7 @@ function creationPanier() {
     $_SESSION['panier']['idArticle'] = array();
     $_SESSION['panier']['qteArticle'] = array();
   }
+  return true;
 }
 
 // Suppression d'un panier
@@ -17,14 +17,14 @@ function supprimerPanier() {
 }
 
 // Ajout d'un article au panier
-function ajouterArticle($idProduit, $qteArticle) {
+function ajouterArticle($idArticle, $qteProduit) {
   if(creationPanier()) {
-    $position_produit = array_search($idProduit, $_SESSION['panier']['idArticle']);
+    $position_produit = array_search($idArticle, $_SESSION['panier']['idArticle']);
     if ($position_produit !== false) {
-      $_SESSION['panier']['idArticle'][$position_produit] += $qteArticle;
+      $_SESSION['panier']['qteArticle'][$position_produit] += $qteProduit;
     } else {
       array_push($_SESSION['panier']['idArticle'], $idArticle);
-      array_push($_SESSION['panier']['qteArticle'], $qteArticle);
+      array_push($_SESSION['panier']['qteArticle'], $qteProduit);
     }
   } else {
     echo 'Erreur, contactez un admin.';
@@ -32,12 +32,12 @@ function ajouterArticle($idProduit, $qteArticle) {
 }
 
 // Modifier la quantité d'un article dans le panier
-function ModifierQteArticle($idProduit, $qteArticle) {
+function modifierQteArticle($idProduit, $qteProduit) {
   if (creationPanier()) {
-    if ($qteArticle > 0) {
+    if ($qteProduit > 0) {
       $position_produit = array_search($_SESSION['panier']['idArticle'], $idArticle);
       if ($position_produit !== false) {
-        $_SESSION['panier']['idArticle'][$position_produit] = $qteArticle;
+        $_SESSION['panier']['idArticle'][$position_produit] = $qteProduit;
       }
     } else {
       supprimerArticle($idArticle);
@@ -54,16 +54,16 @@ function supprimerArticle($idArticle) {
     $tmp['idArticle'] = array();
     $tmp['qteArticle'] = array();
 
-    for ($i; $i < count($_SESSION['panier']['idArticle']); $i++) {
-      if ($_SESSION['panier']['idArticle'][$i] !== $idProduit) {
-        array_push($_SESSION['panier']['idArticle'], $_SESSION['panier']['idArticle'][$i]);
-        array_push($_SESSION['panier']['qteArticle'], $_SESSION['panier']['qteArticle'][$i]);
+    for ($i = 0; $i < count($_SESSION['panier']['idArticle']); $i++) {
+      if ($_SESSION['panier']['idArticle'][$i] !== $idArticle) {
+        array_push($tmp['idArticle'], $_SESSION['panier']['idArticle'][$i]);
+        array_push($tmp['qteArticle'], $_SESSION['panier']['qteArticle'][$i]);
       }
     }
     $_SESSION['panier'] = $tmp;
     unset($tmp);
   } else {
-    echo 'Erreur, contectez un admin.';
+    echo 'Erreur, contactez un admin.';
   }
 }
 
@@ -76,15 +76,5 @@ function compterArticles() {
   }
 }
 
-// Calcul du montant global d'un panier
-function montantGlobal() {
-  $total = 0;
-  for ($i; $i < count($_SESSION['panier']['idArticle']); $i++) {
-    $select = $db->query("SELECT prix FROM article WHERE id = '{$_SESSION['panier']['idArticle']}'");
-    $prix = $select->fetch(PDO::FETCH_OBJ);
-    $total += $_SESSION['panier']['qteArticle'][$i] * $prix;
-  }
-  return $total;
-}
 
  ?>

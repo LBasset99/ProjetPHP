@@ -1,5 +1,4 @@
 <?php
-
     require_once("../model/Categorie.class.php");
     require_once("../model/Article.class.php");
 
@@ -35,6 +34,7 @@
           return $categorie;
         }
 
+        // Acces a un articles à partir de son id
         function getUnArt($unArt) : Article {
           $req = 'SELECT * FROM Article WHERE ref="'.$unArt.'";';
           $art = $this->db->query($req);
@@ -133,6 +133,7 @@
 
             return $article;
         }
+
 
         // Acces à la référence qui suit la référence $ref dans l'ordre des références
         function next(int $ref) : int {

@@ -7,9 +7,9 @@
   </head>
   <div class="bg"></div>
   <nav>
-    <div class="logo"><a href="../../../index8.php"></div>
+    <a href="../controler/afficherArticles.ctrl.php"><div class="logo"></div></a>
     <ul class="liens">
-      <li class=""><a href="../view/panier.view.php">Mon Panier</a></li>
+      <li class=""><a href="../controler/panier.ctrl.php">Mon Panier</a></li>
       <li class=""><a href="inscription.view.php">M'inscrire</a></li>
       <li class=""><a href="connexion.view.php">Me connecter</a></li>
       <!-- <li><a href="#">Item 4</a></li> -->

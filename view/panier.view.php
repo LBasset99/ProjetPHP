@@ -7,7 +7,6 @@
   </head>
   <body>
 
-
     <form class="" action="" method="post">
       <table>
         <tr>
@@ -20,41 +19,45 @@
           <td>Action</td>
         </tr>
         <?php
-
-        if($cree) {
+        if(creationPanier()) {
 
           $nbProduits = count($_SESSION['panier']['idArticle']);
           if ($nbProduits <= 0) {
             print('<h4>Votre panier est vide...</h4>');
           } else {
-            // 5:38 #14-1 YOUTUBE APPRENDRE LE PHP PSK C IMPORTANT
             for($i = 0; $i < $nbProduits; $i++) {
-              ?>
+        ?>
               <tr>
-                <td><?php echo $_SESSION['panier']['idProduit'][$i]; ?></td>
-                <td><input name="quantite" value="<?php echo $_SESSION['panier']['qteArticle'][$i]; ?>" size="5" /></td>
-                <td><?php getUnArt($_SESSION['panier']['idProduit'][$i])->prix; ?></td>
-                <td><a href="panier.php?action=suppression&amp;1=<?php echo rawurlencode($_SESSION['panier']['idArticle'][$i]); ?>">X</a></td>
+                <td><?php echo $articles[$i]->libelle; ?></td>
+                <td><?php echo $articles[$i]->prix; ?></td>
+                <td><input name="quantite" value="<?php echo $_SESSION['panier']['qteArticle'][$i]; ?>" size="1" /></td>
+                <td><a href="panier.ctrl.php?action=suppression&amp;l=<?php echo rawurlencode($_SESSION['panier']['idArticle'][$i]); ?>">X</a></td>
               </tr>
               <tr>
-
+                <?php } ?>
                 <td colspan="2"><br/>
-                  <p>Total : <?php echo montantGlobal(); ?></p>
+                  <p>Total : <?php
+                  $montant = 0;
+                  foreach ($articles as $key => $value) {
+                    $montant += $value->prix;
+                    $montant = $montant * $_SESSION['panier']['qteArticle'][$key];
+                  };
+
+                  echo $montant;
+                  ?></p>
                 </td>
               </tr>
               <tr colspan="4">
-                <input type="submit" name="" value="rafraichir">
-                <input type="hidden" name="action" value="refresh">
-                <a href="?deletePanier=true">Supprimer votre panier</a>
+                <td><input type="submit" name="" value="rafraichir"></td>
+                <td><input type="hidden" name="action" value="refresh"></td>
+                <td><a href="?deletePanier=true">Supprimer votre panier</a></td>
               </tr>
 
-              <?php
-            }
+      <?php
           }
         }
+       ?>
 
-
-         ?>
       </table>
     </form>
   </body>

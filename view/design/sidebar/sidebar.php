@@ -59,7 +59,7 @@
       print('<h4>'.$value->libelle.'</h4>');
       print('<h6>&nbsp &nbsp &nbsp'.$value->prix.'€</h6>');
       print('</a>');
-      print('<a href="" class="ajouter">AJOUTER AU PANIER</a>');
+      print('<a href="../controler/panier.ctrl.php?action=ajout&amp;l='.$value->ref.'&amp;q=1" class="ajouter">AJOUTER AU PANIER</a>');
       print('</div>');
     }
     print('</div>');

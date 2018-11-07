@@ -1,5 +1,6 @@
 <?php
-    // Partie principale
+    // Partie session
+    $_SESSION['user'] = "user";
 
     // Inclusion du modèle
     include_once("../model/DAO.class.php");

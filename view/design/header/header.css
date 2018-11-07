@@ -93,10 +93,14 @@ nav a {
 nav a:hover {
   color: #ededed;
 }
-
 .logo {
   height: 75px;
+  width: 100px;
   float: left;
+  margin: 0;
+}
+.logo:hover {
+  cursor: pointer;
 }
 .logo:before, .logo:after {
   position: absolute;

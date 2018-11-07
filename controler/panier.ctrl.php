@@ -1,24 +1,32 @@
 <?php
-include_once('../model/function_panier.model.php');
 include_once('../model/DAO.class.php');
+include_once('../model/function_panier.model.php');
+session_start();
+creationPanier();
 
-include_once('../view/design/header/header.php');
-include_once('../view/panier.view.php');
-include_once('../view/design/footer/footer.php');
-///////// VOIR POUR LES MVC CA MARCHE AP ON VERRA GROS
-
-
-
-$cree = creationPanier();
-
-if (isset($_GET['deletePanier']) && $GET['deletePanier'] == true) {
+if (isset($_GET['deletePanier']) && $_GET['deletePanier'] == true) {
   supprimerPanier();
 }
 
-$action = (isset);
+$action = (isset($_POST['action']) ? $_POST['action'] : (isset($_GET['action']) ? $_GET['action'] : null));
+
+if($action !== null) {
+    $l = (isset($_POST['l']) ? $_POST['l'] : (isset($_GET['l']) ? $_GET['l'] : null));
+    $q = (isset($_POST['q']) ? $_POST['q'] : (isset($_GET['q']) ? $_GET['q'] : null));
+
+    // Quantité d'articles
+    if (is_array($q)) {
+      $qteArticle = array();
+      $i = 0;
+      foreach ($q as $value) {
+        $qteArticle[$i++] = $value;
+      }
+    }
+}
+
 switch ($action) {
-  case 'ajouter':
-    ajouterArticle($l,$q,$p);
+  case 'ajout':
+    ajouterArticle($l,$q);
     break;
 
   case 'suppression':
@@ -26,14 +34,22 @@ switch ($action) {
     break;
 
   case 'refresh':
-    for ($i=0; $i < count($qteArticle); $i++) {
-      ModifierQteArticle($_SESSION['panier']['libelleProduit'][$i], $qteArticle)
+    for ($i = 0; $i < count($qteArticle); $i++) {
+      modifierQteArticle($_SESSION['panier']['idArticle'][$i], $qteArticle[$i]);
     }
-    break;
-
-  case 'ajouter':
-    // code...
     break;
 }
 
+// vecteur d'objets de la classe Article
+$articles = array();
+if (isset($_SESSION['panier']['idArticle'])) {
+  for ($i = 0; $i < count($_SESSION['panier']['idArticle']); $i++) {
+    array_push($articles, $dao->getUnArt($_SESSION['panier']['idArticle'][$i]));
+  }
+}
+
+
+include_once('../view/design/header/header.php');
+include_once('../view/panier.view.php');
+include_once('../view/design/footer/footer.php');
  ?>
