@@ -1,10 +1,3 @@
-<?php
-require_once('../model/function_panier.model.php');
-require_once('../controler/main.ctrl.php');
-// autres require header / sidebar
-
- ?>
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -13,10 +6,7 @@ require_once('../controler/main.ctrl.php');
     <title>Panier - Vlad Shop Unofficial</title>
   </head>
   <body>
-    <header>
-      <p>Panier</p>
-      <img src="design/vladshop.png" width="" alt="vlad logo">
-    </header>
+
 
     <form class="" action="" method="post">
       <table>
@@ -31,13 +21,37 @@ require_once('../controler/main.ctrl.php');
         </tr>
         <?php
 
+        if($cree) {
+
           $nbProduits = count($_SESSION['panier']['idArticle']);
-          if ($nbProduits < 0) {
-            echo 'Votre panier est vide...';
+          if ($nbProduits <= 0) {
+            print('<h4>Votre panier est vide...</h4>');
           } else {
             // 5:38 #14-1 YOUTUBE APPRENDRE LE PHP PSK C IMPORTANT
-          }
+            for($i = 0; $i < $nbProduits; $i++) {
+              ?>
+              <tr>
+                <td><?php echo $_SESSION['panier']['idProduit'][$i]; ?></td>
+                <td><input name="quantite" value="<?php echo $_SESSION['panier']['qteArticle'][$i]; ?>" size="5" /></td>
+                <td><?php getUnArt($_SESSION['panier']['idProduit'][$i])->prix; ?></td>
+                <td><a href="panier.php?action=suppression&amp;1=<?php echo rawurlencode($_SESSION['panier']['idArticle'][$i]); ?>">X</a></td>
+              </tr>
+              <tr>
 
+                <td colspan="2"><br/>
+                  <p>Total : <?php echo montantGlobal(); ?></p>
+                </td>
+              </tr>
+              <tr colspan="4">
+                <input type="submit" name="" value="rafraichir">
+                <input type="hidden" name="action" value="refresh">
+                <a href="?deletePanier=true">Supprimer votre panier</a>
+              </tr>
+
+              <?php
+            }
+          }
+        }
 
 
          ?>

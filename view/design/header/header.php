@@ -9,7 +9,7 @@
   <nav>
     <div class="logo"><a href="../../../index8.php"></div>
     <ul class="liens">
-      <li class=""><a href="panier.view.php">Mon Panier</a></li>
+      <li class=""><a href="../view/panier.view.php">Mon Panier</a></li>
       <li class=""><a href="inscription.view.php">M'inscrire</a></li>
       <li class=""><a href="connexion.view.php">Me connecter</a></li>
       <!-- <li><a href="#">Item 4</a></li> -->
@@ -24,15 +24,3 @@
     </div>
   </header>
 </html>
-
-<!-- <script type="text/javascript">
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-10px";
-  }
-}
-</script> -->

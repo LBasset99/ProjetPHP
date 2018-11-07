@@ -43,7 +43,7 @@ function ModifierQteArticle($idProduit, $qteArticle) {
       supprimerArticle($idArticle);
     }
   } else {
-    echo 'Erreur, contectez un admin.';
+    echo 'Erreur, contactez un admin.';
   }
 }
 
