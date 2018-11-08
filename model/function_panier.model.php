@@ -32,10 +32,10 @@ function ajouterArticle($idArticle, $qteProduit) {
 }
 
 // Modifier la quantité d'un article dans le panier
-function modifierQteArticle($idProduit, $qteProduit) {
+function modifierQteArticle($idArticle, $qteProduit) {
   if (creationPanier()) {
     if ($qteProduit > 0) {
-      $position_produit = array_search($_SESSION['panier']['idArticle'], $idArticle);
+      $position_produit = array_search($idArticle, $_SESSION['panier']['idArticle']);
       if ($position_produit !== false) {
         $_SESSION['panier']['qteArticle'][$position_produit] = $qteProduit;
       }

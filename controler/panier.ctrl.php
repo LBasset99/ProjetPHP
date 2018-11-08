@@ -13,16 +13,13 @@ $action = (isset($_POST['action']) ? $_POST['action'] : (isset($_GET['action']) 
 if($action !== null) {
     $l = (isset($_POST['l']) ? $_POST['l'] : (isset($_GET['l']) ? $_GET['l'] : null)); // id
     $q = (isset($_POST['q']) ? $_POST['q'] : (isset($_GET['q']) ? $_GET['q'] : null)); // quantité
+    $qte = (isset($_POST['quantity']) ? $_POST['quantity'] : (isset($_GET['quantity']) ? $_GET['quantity'] : null)); // quantité
 
     // Quantité d'articles
-    echo "NOPE";
-    var_dump($q);
-    if (is_array($q)) {
-      echo "JE SUIS ARRICVES JUSKICI C BIEN";
+    if (is_array($qte)) {
       $qteArticle = array();
       $i = 0;
-      foreach ($q as $value) {
-        echo "UOUYOGUIYGIOYGIGYIOGIYGIYOGIYOGIOYGIYOIGOYGY";
+      foreach ($qte as $value) {
         $qteArticle[$i++] = $value;
       }
     }
