@@ -30,7 +30,7 @@
               <tr>
                 <td><?php echo $articles[$i]->libelle; ?></td>
                 <td><?php echo $articles[$i]->prix; ?></td>
-                <td><input name="quantite" value="<?php echo $_SESSION['panier']['qteArticle'][$i]; ?>" size="1" /></td>
+                <td><form id="formQte" method="post"><input name="quantity" value="<?php echo $_SESSION['panier']['qteArticle'][$i]; ?>"/></form></td>
                 <td><a href="panier.ctrl.php?action=suppression&amp;l=<?php echo rawurlencode($_SESSION['panier']['idArticle'][$i]); ?>">X</a></td>
               </tr>
               <tr>
@@ -47,10 +47,12 @@
                   ?></p>
                 </td>
               </tr>
-              <tr colspan="4">
-                <td><input type="submit" name="" value="rafraichir"></td>
-                <td><input type="hidden" name="action" value="refresh"></td>
-                <td><a href="?deletePanier=true">Supprimer votre panier</a></td>
+              <tr>
+                <td colspan="4">
+                <input type="submit" form="formQte" name="" value="rafraichir">
+                <input type="hidden" name="action" value="refresh">
+                <a href="?deletePanier=true">Supprimer votre panier</a>
+                </td>
               </tr>
 
       <?php

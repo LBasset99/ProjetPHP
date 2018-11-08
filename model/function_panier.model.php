@@ -37,7 +37,7 @@ function modifierQteArticle($idProduit, $qteProduit) {
     if ($qteProduit > 0) {
       $position_produit = array_search($_SESSION['panier']['idArticle'], $idArticle);
       if ($position_produit !== false) {
-        $_SESSION['panier']['idArticle'][$position_produit] = $qteProduit;
+        $_SESSION['panier']['qteArticle'][$position_produit] = $qteProduit;
       }
     } else {
       supprimerArticle($idArticle);

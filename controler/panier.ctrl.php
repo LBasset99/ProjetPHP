@@ -11,14 +11,18 @@ if (isset($_GET['deletePanier']) && $_GET['deletePanier'] == true) {
 $action = (isset($_POST['action']) ? $_POST['action'] : (isset($_GET['action']) ? $_GET['action'] : null));
 
 if($action !== null) {
-    $l = (isset($_POST['l']) ? $_POST['l'] : (isset($_GET['l']) ? $_GET['l'] : null));
-    $q = (isset($_POST['q']) ? $_POST['q'] : (isset($_GET['q']) ? $_GET['q'] : null));
+    $l = (isset($_POST['l']) ? $_POST['l'] : (isset($_GET['l']) ? $_GET['l'] : null)); // id
+    $q = (isset($_POST['q']) ? $_POST['q'] : (isset($_GET['q']) ? $_GET['q'] : null)); // quantité
 
     // Quantité d'articles
+    echo "NOPE";
+    var_dump($q);
     if (is_array($q)) {
+      echo "JE SUIS ARRICVES JUSKICI C BIEN";
       $qteArticle = array();
       $i = 0;
       foreach ($q as $value) {
+        echo "UOUYOGUIYGIOYGIGYIOGIYGIYOGIYOGIOYGIYOIGOYGY";
         $qteArticle[$i++] = $value;
       }
     }
