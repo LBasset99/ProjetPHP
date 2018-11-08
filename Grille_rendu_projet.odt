@@ -1,0 +1,59 @@
+==================================================================
+  GHAZALI ELIAS, BENJAMIN CLIN, LUCAS BASSET groupe B1
+==================================================================
+
+
+==================================================================
+-DESCRIPTION DU PROJET:
+==================================================================
+Réalisation du site marchand en php/html/css, codé selon le modèle MVC.
+Proposer un logiciel avec une présentation (interface), un visuel et des fonctionnalités (semi) professionnelles.
+
+
+==================================================================
+-Fonctionnalités utilisateur:
+==================================================================
+Revenir à la page des articles en cliquant sur le logo principal
+Accèder au panier (selon la session)
+Cliquer sur un article pour le visualiser
+Trier les articles par prix (croissant ou décroissant)
+Filtrer les articles selon leur catégorie
+Ajouter un article au panier depuis :
+  la page de tous les articles
+  la page de visualisation de cet article
+Supprimer un article depuis le panier
+Modifier la quantité de chacun des articles
+Rafraichir le panier afin de rafraichir le prix total (après modification de la quantité)
+Supprimer tous les articles du panier
+Passer commande
+
+==================================================================
+-Fonctionnalités principales:
+==================================================================
+Affichage des articles avec leur
+  libelle
+  prix
+  image
+Tri par prix (croissant ou décroissant)
+Filtrage selon la catégorie
+Affichage de l'article dans le panier
+Affichage du prix total du panier
+Tout ce qui gère la contenu du panier:
+  Ajout des articles + aumentation de la quantité lorsque l'article est déja présent dans le panier
+  Suppression de tous les articles du panier
+  Suppression d'un article peu importe la quantité
+  Modification de la quantité par l'utilisateur
+  Affiche "Votre panier est vide..." lorsque la panier est effectivement vide
+D'autres fonctionnalités ont été écrites mais ne sont pas implémentées
+
+==================================================================
+-Code externe utilisé:
+==================================================================
+Provenant de w3school.
+image: https://stmed.net/sites/default/files/vladimir-putin-wallpapers-27458-2348595.jpg
+librairie CSS: https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
+
+==================================================================
+-URL PROJET:
+==================================================================
+http://www-etu-info.iut2.upmf-grenoble.fr/~bassetlu/ProgWeb/ProjetPHPv1/controler/afficherArticles.ctrl.php
