@@ -45,6 +45,8 @@ Tout ce qui gère la contenu du panier:
   Modification de la quantité par l'utilisateur
   Affiche "Votre panier est vide..." lorsque la panier est effectivement vide
 D'autres fonctionnalités ont été écrites mais ne sont pas implémentées
+Le sweat capuche cover a été entré comme sweat - pull dans la base de données donc il appartient à cette catégorie.
+  (donc il n'y a pas d'erreur de code, juste une erreur d'entrée manuelle dans article.txt)
 
 ==================================================================
 -Code externe utilisé:
